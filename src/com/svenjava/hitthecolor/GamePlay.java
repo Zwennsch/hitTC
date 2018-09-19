@@ -16,10 +16,10 @@ public class GamePlay {
 	private List<Color> colors = new ArrayList<>();
 	private List<String> colorNames = new ArrayList<>();
 	private String randomColorName;
-	public static int points;
-	public static int level;
-	public int time;
-	protected Timer gameTimer;
+	static int points;
+	static int level;
+	int time;
+	Timer gameTimer;
 	private Color randomStringColor;
 	
 	
@@ -76,19 +76,13 @@ public class GamePlay {
 		return colors;
 	}
 
-
-
 	public String getRandomColorName() {
 		return randomColorName;
 	}
 
-
-
 	public void setRandomColorName() {
 		this.randomColorName = colorNames.get(rand.nextInt(colorNames.size()));
 	}
-
-
 
 	public void gameOver(GamePanel panel) {
 		gameOver = true;
@@ -101,7 +95,7 @@ public class GamePlay {
 		return randomStringColor;
 	}
 
-	public void setRandomStringColor() {
+	public void initRandomStringColor() {
 		this.randomStringColor = this.getColors().get(new Random().nextInt(getColors().size()));
 	}
 
