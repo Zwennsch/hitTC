@@ -42,19 +42,32 @@ public class GamePlay {
 		time = 5;
 	}
 	
+	public void updateLevel() {
+		if(points < 20) {
+			level = 1;
+		}else if(20 <= points && points <40) {
+			level = 2;
+		}else if(40 <= points && points < 60) {
+			level = 3;
+		}else if(60<= points && points < 80) {
+			level = 4;
+		}else level = 5;
+
+	}
+
 	public void restartGameTimer(GamePanel panel) {
 		
 		gameTimer = new Timer();
-		time = 5;
+		time = 6 - level;
 		gameTimer.scheduleAtFixedRate(new TimerTask() {
 			
 			@Override
 			public void run() {
-				System.out.println("Seconds: "+ time);
+//				System.out.println("Seconds: "+ time);
 				time--;
 				if(time <= 0) {
-					GamePlay.gameOver = true;
 					gameTimer.cancel();
+					gameOver(panel);
 				}
 				panel.repaint(GamePanel.dim.width/2 -50, GamePanel.dim.height-GamePanel.dim.height/30, 100, GamePanel.dim.height/30);;
 			}

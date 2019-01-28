@@ -92,6 +92,7 @@ public class ColoredSquaresAndStringDrawer implements MouseListener {
 	private void generateNewScreenAndSetPoints() {
 		if(gamePlay.time >0)
 		GamePlay.points++;
+		gamePlay.updateLevel();
 		gamePlay.shuffleColorsAndNames();
 		gamePlay.setRandomColorName();
 		gamePlay.setRandomStringColor();
